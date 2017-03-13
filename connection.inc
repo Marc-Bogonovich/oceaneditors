@@ -21,4 +21,4 @@ $db = "oceanedi_db";
 mysql_connect($servername1, $usernamedb, $password);
 Mysql_select_db("oceanedi_db");
 
-/?>
+?>

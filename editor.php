@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>ContactEditor</title>
+<title>Contact Editor</title>
 
 <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Lora|Merriweather" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet" type="text/css" />
