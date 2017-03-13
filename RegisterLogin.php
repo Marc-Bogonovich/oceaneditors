@@ -7,7 +7,6 @@
         <title>Register Login</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Lora|Merriweather" rel="stylesheet">
 
-
         <style>
 
             body {
@@ -52,11 +51,7 @@
                 right: 0;
                 margin: auto;*/
             }
-        </style>	       
-
-
-
-
+        </style>
 
     </head>
 
@@ -66,7 +61,7 @@
             <p>Register as an editor or Login</p>
 
             <section style="text-align: left; width:400px; border: 1px solid blue;" class="theforms">
-                <form id="form1">
+                <form id="form1" method="POST">
                     <label>Login</label>
                     <input name="email" type="email" placeholder="email"></input>
                     <br>
@@ -78,7 +73,7 @@
 
                 <br>
 
-                <form id="form2">
+                <form id="form2" method="POST">
                     <label>Register</label>
                     <input name="username2" placeholder="username"></input>
                     <br>
@@ -90,10 +85,33 @@
                     <br>
                     <input id="submit2" name="submit2" type="submit" value="Submit">
                 </form>
+                
+                <?php
+                    if (isset($_POST)) {
+                        include 'pdo_connection.inc';
+                        
+                        //REGISTERING
+                        if(isset($_POST['retypepassword2']))
+                        {
+                            
+                            $stmt = $dbh->prepare("INSERT INTO editors (username, password, email) VALUES (:username, :password, :email)");
+                            $stmt->bindParam(':username', $_POST['username2']);
+                            $stmt->bindParam(':password', $_POST['password2']);
+                            $stmt->bindParam(':email', $_POST['email2']);
+                            $stmt->execute();
+                            
+                        }
+                        else //LOGGING IN
+                            {
+                            
+                            // TODO: SELECT
+                        }
+                    }
+                ?>
 
             </section>
 
-            <br><br><br>
+            <br /><br /><br />
 
-            </body>
-            </html>
+    </body>
+</html>

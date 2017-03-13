@@ -26,6 +26,9 @@
 
 include 'connection.inc';
 
+// Collecting the username from the url
+$usernameGET = $_GET['username'];
+
 // This method of connection also works, but used the second method
 ////$conn = new mysqli($servername1, $usernamedb, $password, $db);
 //
@@ -55,7 +58,7 @@ include 'connection.inc';
 //$TESTTT = "price";
 //$sqlstring2 = "SELECT * FROM editors WHERE ". $TESTTT ." = 40 ORDER BY username ASC"; // "SELECT * FROM editors WHERE username = " . $usernameGET . " ORDER BY username ASC";
 //END TEST
-$sqlstring = "SELECT * FROM editors WHERE username = '" . $usernameGET . "' ORDER BY username ASC";
+$sqlstring = "SELECT * FROM editors WHERE username = '" . mysql_real_escape_string($usernameGET) . "' ORDER BY username ASC";
 //TEST
 //echo $sqlstring . "<br>";
 //END TEST

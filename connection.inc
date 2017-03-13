@@ -6,9 +6,6 @@
  * and open the template in the editor.
  */
 
-// Collecting the username from the url
-$usernameGET = $_GET['username'];
-
 // https://www.w3schools.com/php/php_mysql_select.asp
 //One way of connecting to the db
 
@@ -19,6 +16,6 @@ $db = "oceanedi_db";
 
 //Alternative connection and SQL query attempt
 mysql_connect($servername1, $usernamedb, $password);
-Mysql_select_db("oceanedi_db");
+Mysql_select_db($db);
 
 ?>
