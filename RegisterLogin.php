@@ -85,28 +85,53 @@
                     <br>
                     <input id="submit2" name="submit2" type="submit" value="Submit">
                 </form>
-                
+
                 <?php
-                    if (isset($_POST)) {
+  
+                // MANUAL PASSWORD HASHING, JUNK CODE PROBABLY
+//                $options = [
+//                    'cost' => 12,
+//                ];
+//                $password_hashed = password_hash('oliver987', PASSWORD_BCRYPT, $options);
+//                echo "\n";
+//                echo $password_hashed;
+//                echo "\n";
+                
+                //REGISTERING
+                if (isset($_POST['retypepassword2'])) {
+                    if ($_POST['password2'] == $_POST['retypepassword2']) {
+                        $options = [
+                            'cost' => 12,
+                        ];
+                        $password_hashed = password_hash($_POST['password2'], PASSWORD_BCRYPT, $options);
                         include 'pdo_connection.inc';
-                        
-                        //REGISTERING
-                        if(isset($_POST['retypepassword2']))
-                        {
-                            
-                            $stmt = $dbh->prepare("INSERT INTO editors (username, password, email) VALUES (:username, :password, :email)");
-                            $stmt->bindParam(':username', $_POST['username2']);
-                            $stmt->bindParam(':password', $_POST['password2']);
-                            $stmt->bindParam(':email', $_POST['email2']);
-                            $stmt->execute();
-                            
-                        }
-                        else //LOGGING IN
-                            {
-                            
-                            // TODO: SELECT
-                        }
+                        $stmt = $conn->prepare("INSERT INTO editors (username, password, email) VALUES (:username, :password, :email)");
+                        $stmt->bindParam(':username', $_POST['username2']);
+                        $stmt->bindParam(':password', $password_hashed);
+                        $stmt->bindParam(':email', $_POST['email2']);
+                        $stmt->execute();
+
+                        header("Location: agreement.php");
+                    } else {
+                        echo "Your passwords don't match.";
                     }
+                } elseif (isset($_POST['email'])) { //LOGGING IN
+                    include 'pdo_connection.inc';
+                    $stmt = $conn->prepare("SELECT password, agreement FROM editors WHERE email = :email");
+                    $stmt->bindValue(':email', $_POST['email']);
+                    $stmt->execute();
+                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $temp_password = $results[0]['password'];
+                    if (password_verify($_POST['password'], $temp_password)) {
+                        if ($results[0]['agreement'] == 1) {
+                            header("Location: ModifyEditorProfile.php");
+                        } else {
+                            header("Location: agreement.php");
+                        }
+                    } else {
+                        echo 'Invalid password.';
+                    }
+                }
                 ?>
 
             </section>
