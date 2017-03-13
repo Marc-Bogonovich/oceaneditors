@@ -5,168 +5,8 @@
 <title>ContactEditor</title>
 
 <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Lora|Merriweather" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet" type="text/css" />
 
-<style>
-  #record1 {
-    position: absolute;
-    top: 4em;
-    height: auto; // 20%;
-    font-size:20px;
-    color: #23505e;
-    font-family: 'Lora', serif;
-    text-align: left;
-    margin-top: 3em;
-    border: 2px solid #23505E;
-
-    width: 88%;
-    margin-left: 5%;
-
-//ROUNDED CORNERS
-/* http://stackoverflow.com/questions/6484820/rounded-corners-on-divs-with-background-color */
-padding: 0px;
--moz-border-radius: 20px 20px 20px 20px;
-border-radius: 20px 20px 20px 20px;
-
-border-top-left-radius: 20px
-border-top-right-radius: 20px
-/* For backward compatibility with old Mozilla browsers you should also use: */
--moz-border-radius-topleft: 20px
--moz-border-radius-topright: 20px
-/* And for old versions of WebKit browsers (Safari, mainly), you can use: */
--webkit-border-top-left-radius: 20px
--webkit-border-top-right-radius: 20px
-//END ROUNDED CORNERS
-
-//Internal padding around text
-padding-top: 1%;
-padding-right: 1%;
-padding-bottom: 1%;
-padding-left: 1%;
-  }
-
-  ul {
-    display: inline-block;
-    vertical-align: top;
-    padding-left: 0;
-  }
-  li {
-    list-style: none;
-  }
-
-  #editors {
-      border: 2px solid #23505E;
-      height: auto;
-      margin-top: 1em;
-
-    //ROUNDED CORNERS
-/* http://stackoverflow.com/questions/6484820/rounded-corners-on-divs-with-background-color */
-padding: 0px;
--moz-border-radius: 20px 20px 20px 20px;
-border-radius: 20px 20px 20px 20px;
-
-border-top-left-radius: 20px
-border-top-right-radius: 20px
-/* For backward compatibility with old Mozilla browsers you should also use: */
--moz-border-radius-topleft: 20px
--moz-border-radius-topright: 20px
-/* And for old versions of WebKit browsers (Safari, mainly), you can use: */
--webkit-border-top-left-radius: 20px
--webkit-border-top-right-radius: 20px
-//END ROUNDED CORNERS
-
-//Internal padding around text
-padding-top: 1%;
-padding-right: 1%;
-padding-bottom: 1%;
-padding-left: 1%;
-
-
-
-
-
-
-/*CONTACT FORM CODE. I used the following tutorial:
-http://tangledindesign.com/how-to-create-a-contact-form-using-html5-css3-and-php/
-*/
-
-label {
-    /*This line arranges the entire form into a block, by placing the labels in a block*/
-    display:block;
-    margin-top:20px;
-    letter-spacing:2px;
-}
-
-/* Centre the page */
-.body {
-    display:block;
-    margin:0 auto;
-    width:576px;
-}
-
-/* Centre the form within the page */
-form {
-    margin:0 auto;
-    width:459px;
-}
-
-/* Style the text boxes */
-input, textarea {
-	width:439px;
-	height:27px;
-	background:#efefef;
-	border:1px solid #dedede;
-	padding:10px;
-	margin-top:3px;
-	font-size:0.9em;
-	color:#3a3a3a;
-}
-
-textarea {
-	height:213px;
-}
-
-input, textarea {
-    width:439px;
-    /*height:27px;*/
-    background:#efefef;
-    border:1px solid #dedede;
-    padding:10px;
-    margin-top:3px;
-    font-size:0.9em;
-    color:#3a3a3a;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
-}
-
-/*honestly, not sure what this is doing*/
-input:focus, textarea:focus {
-    border:1px solid #97d6eb;
-}
-
-#submit {
-    width:127px;
-    height:38px;
-    text-indent:0px;
-    border:none;
-    margin-top:20px;
-    cursor:pointer;
-}
-
-	#submit:hover {
-	    opacity:.9;
-	}
-
-/*END CONTACT FORM CODE*/
-
-
-
-
-
-
-  }
-
-</style>
 </head>
 
 <body>
@@ -181,24 +21,10 @@ input:focus, textarea:focus {
 
 <h1> Step 2: Contact an Editor</h1>
 
-
-
-
-
 <!--MAKE A CONNECTION TO THE DB BASED ON THE username GET PARAMETER-->
 <?php
 
-// Collecting the username from the url
-$usernameGET = $_GET['username'];
-
-
-// https://www.w3schools.com/php/php_mysql_select.asp
-//One way of connecting to the db
-$servername1 = "localhost"; //:3306"; //seems to work with just "localhost" too.
-$usernamedb = "oceanedi_qian";
-$password = '$Smartland234%'; //had to change this to single quotes because the password contains a money sign, which I think is reserved by PHP????
-$db = "oceanedi_db";
-
+include 'connection.inc';
 
 // This method of connection also works, but used the second method
 ////$conn = new mysqli($servername1, $usernamedb, $password, $db);
@@ -224,10 +50,6 @@ $db = "oceanedi_db";
 //}
 //}
 
-
-//Alternative connection and SQL query attempt
-mysql_connect($servername1, $usernamedb, $password);
-Mysql_select_db("oceanedi_db");
 
 //TEST
 //$TESTTT = "price";
@@ -389,15 +211,7 @@ mail($to, $subject, $body, $from);
 
 <!--END CONTACT FORM CODE-->
 
-
-
-
-
-
   </div>
-
-
-
 
 </body>
 </html>
