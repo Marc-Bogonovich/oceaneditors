@@ -272,7 +272,7 @@ if ($result->num_rows > 0) {
         <li id= 'field'>Fields: <b>". $row["fields"]."</b></li>
         <li id= 'lastlogin'>Last Login Time: 1 day/s</li>
         <br>
-        <li id= 'vieweditor'><a href=\"http://www.oceaneditors.com/editor.php". "?". "username=". $row["username"]."\"> View/contact ".$row["name"]."</a></li>        
+        <li id= 'vieweditor'><a href=\"editor.php". "?". "username=". $row["username"]."\"> View/contact ".$row["name"]."</a></li>        
       </ul>
 <!--      &nbsp
       &nbsp
