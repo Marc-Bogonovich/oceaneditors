@@ -65,18 +65,23 @@
         include 'pdo_connection.inc';
         
         if (isset($_POST['name'])) {
-            $_POST['name'];
+            $stmt = $conn->prepare("UPDATE editors SET username = :username, name = :name, fields = :fields, email = :email, price = :price, description = :description, turn_aroundtime = :turn_aroundtime, visible_editor = :visible_editor WHERE id = :id");
+            $stmt->bindParam(':id', $_SESSION['id']);
+            $stmt->bindParam(':username', $_POST['username']);
+            $stmt->bindParam(':name', $_POST['name']);
+            $stmt->bindParam(':fields', $_POST['fields']);
+            $stmt->bindParam(':email', $_POST['email']);
+            $stmt->bindParam(':price', $_POST['price']);
+            $stmt->bindParam(':description', $_POST['description']);
+            $stmt->bindParam(':turn_aroundtime', $_POST['tt']);
+            if (isset($_POST['visible'])) {
+                $stmt->bindValue(':visible_editor', '1');
+            }
+            else{
+                $stmt->bindValue(':visible_editor', '0');
+            }
+            $stmt->execute();
         }
-        
-        $stmt = $conn->prepare("UPDATE editors SET username = :username, name = :name, email = :email, price = :price, description = :description, turn_aroundtime = :turn_aroundtime, visible_editor = :visible_editor WHERE id = :id");
-        $stmt->bindParam(':username', $_POST['username']);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $_POST['email']);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':turn_aroundtime', $turn_aroundtime);
-        $stmt->bindParam(':visible_editor', $visible_editor);
-        $stmt->execute();
         
         $username = '';
         $name = '';
@@ -117,7 +122,7 @@
             <p>Enter or Modify your editor information.</p>
 
             <section style="text-align: left; width:90%; border: 1px solid blue; font-size:15px;" class="theforms">
-                <form id = 'form1' action="welcome.php" method="post">
+                <form id = 'form1' method="post">
                     Username: <input type="text" name="username" placeholder = "Username" value="<?=$username?>" /><br>
                     Name: <input type="text" name="name" placeholder = "Name" value="<?=$name?>" /><br>
                     E-mail: <input type="text" name="email" placeholder="E-mail" value="<?=$email?>" /><br>
