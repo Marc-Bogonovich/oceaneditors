@@ -1,9 +1,25 @@
 <!DOCTYPE html>
-
+<?PHP
+        session_start();        
+?>
+		
 <html>
 
-	<head>
-
+	<head>	
+	<script type="text/javascript">
+    function validate() {
+        if (document.getElementById('agreement').checked) {
+            //alert("checked");
+			//document.write("Hello World!");
+			document.getElementById('submit2').disabled=false; //removeAttribute("disabled");
+        } else {
+            document.getElementById('submit2').disabled=true;
+			//alert("Check the agreement box please. Clarification: please actually read the damn document and then check the box.");
+        }
+		//if (document.getElementById('agreement').checked) {} else {}
+    }
+    </script>
+	
 	    <title>Agreement</title>
 	    <link href="https://fonts.googleapis.com/css?family=Nunito|Raleway|Lora|Merriweather" rel="stylesheet">
 
@@ -202,19 +218,42 @@ You understand that you currently operate as independent contractors. That means
 
         <br>
 
-        <form id="form2">
+        <form id="form2" method="post">
 <!--        <label>Please agree to the terms and responsibilities</label>-->
 
         <label for="agreement">I agree to these terms and responsibilities.</label>
         <br>
-        <input type="checkbox" name="agreement" value="agreement" id="agreement">
+        <input type="checkbox" name="agreement" value="agreement" id="agreement" onclick="validate()">
         <br><br>
-        <input id="submit2" name="submit2" type="submit" value="Agree & Continue">
+        <input id="submit2" name="submit2" type="submit" value="Agree & Continue" disabled="disabled">
         </form>
 
         </section>
 
         <br><br><br>
+<script type="text/javascript">
+		validate();
+</script>
+
+<!--THIS MAY BECOME THE SUBMIT PHP CODE-->
+        <?php
+        
+/*The session start PHP code is at the top of the document*/
+        include 'pdo_connection.inc';
+        
+        if (isset($_POST['agreement'])) {
+            $stmt = $conn->prepare("UPDATE editors SET agreement = :agreement WHERE id = :id");
+            $stmt->bindParam(':id', $_SESSION['id']);
+            $stmt->bindValue(':agreement', '1');
+
+			$stmt = $conn->prepare("SELECT * FROM editors WHERE id = :id");
+            $stmt->execute();
+        	header("Location: http://theos.in/"); /*  /editor.php?username=MarcBogonovich  */
+			echo "<b>HELLLLO</b>";
+		}
+
+		?>
+
 
     </body>
 </html>

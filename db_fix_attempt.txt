@@ -1,4 +1,4 @@
 C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\binaries\mysql\bin\mysql -u root
 
 mysql_upgrade -u root --skip-grant-tables
-mysql -u root -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'mangos'; FLUSH PRIVILEGES"
+mysql -u root -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'oceanedi_qian'; FLUSH PRIVILEGES"
