@@ -97,7 +97,7 @@
 //                echo $password_hashed;
 //                echo "\n";
                 
-                //REGISTERING
+                // REGISTERING
                 if (isset($_POST['retypepassword2'])) {
                     if ($_POST['password2'] == $_POST['retypepassword2']) {
                         $options = [
@@ -115,7 +115,8 @@
                     } else {
                         echo "Your passwords don't match.";
                     }
-                } elseif (isset($_POST['email'])) { //LOGGING IN
+                } // END REGISTERING start LOGGING IN
+                elseif (isset($_POST['email'])) {
                     include 'pdo_connection.inc';
                     $stmt = $conn->prepare("SELECT password, agreement FROM editors WHERE email = :email");
                     $stmt->bindValue(':email', $_POST['email']);
