@@ -87,7 +87,6 @@
                 </form>
 
                 <?php
-  
                 // MANUAL PASSWORD HASHING, JUNK CODE PROBABLY
 //                $options = [
 //                    'cost' => 12,
@@ -96,7 +95,6 @@
 //                echo "\n";
 //                echo $password_hashed;
 //                echo "\n";
-                
                 // REGISTERING
                 if (isset($_POST['retypepassword2'])) {
                     if ($_POST['password2'] == $_POST['retypepassword2']) {
@@ -118,19 +116,28 @@
                 } // END REGISTERING start LOGGING IN
                 elseif (isset($_POST['email'])) {
                     include 'pdo_connection.inc';
-                    $stmt = $conn->prepare("SELECT password, agreement FROM editors WHERE email = :email");
+                    $stmt = $conn->prepare("SELECT id, password, agreement FROM editors WHERE email = :email");
                     $stmt->bindValue(':email', $_POST['email']);
                     $stmt->execute();
                     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    $temp_password = $results[0]['password'];
-                    if (password_verify($_POST['password'], $temp_password)) {
-                        if ($results[0]['agreement'] == 1) {
-                            header("Location: ModifyEditorProfile.php");
+                    if ($results) {
+                        $temp_password = $results[0]['password'];
+                        if (password_verify($_POST['password'], $temp_password)) {
+                            
+                            session_start();
+                            $_SESSION["id"] = $results[0]['id'];
+                            
+                            if ($results[0]['agreement'] == 1) {
+                                header("Location: ModifyEditorProfile.php");
+                            } else {
+                                header("Location: agreement.php");
+                            }
                         } else {
-                            header("Location: agreement.php");
+                            echo 'Invalid password.';
                         }
-                    } else {
-                        echo 'Invalid password.';
+                    }
+                    else{
+                        echo 'Invalid user.';
                     }
                 }
                 ?>
