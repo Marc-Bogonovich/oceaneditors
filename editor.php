@@ -58,7 +58,7 @@ $usernameGET = $_GET['username'];
 //$TESTTT = "price";
 //$sqlstring2 = "SELECT * FROM editors WHERE ". $TESTTT ." = 40 ORDER BY username ASC"; // "SELECT * FROM editors WHERE username = " . $usernameGET . " ORDER BY username ASC";
 //END TEST
-$sqlstring = "SELECT * FROM editors WHERE username = '" . mysql_real_escape_string($usernameGET) . "' ORDER BY username ASC";
+$sqlstring = "SELECT * FROM editors WHERE id = '" . mysql_real_escape_string($_GET['id']) . "' ORDER BY username ASC";
 //TEST
 //echo $sqlstring . "<br>";
 //END TEST

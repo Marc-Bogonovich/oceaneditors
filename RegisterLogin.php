@@ -87,14 +87,6 @@
                 </form>
 
                 <?php
-                // MANUAL PASSWORD HASHING, JUNK CODE PROBABLY
-//                $options = [
-//                    'cost' => 12,
-//                ];
-//                $password_hashed = password_hash('oliver987', PASSWORD_BCRYPT, $options);
-//                echo "\n";
-//                echo $password_hashed;
-//                echo "\n";
                 // REGISTERING
                 if (isset($_POST['retypepassword2'])) {
                     if ($_POST['password2'] == $_POST['retypepassword2']) {
@@ -109,7 +101,11 @@
                         $stmt->bindParam(':email', $_POST['email2']);
                         $stmt->execute();
 
+                        session_start();
+                        $_SESSION["id"] = $conn->lastInsertId();
+                        
                         header("Location: agreement.php");
+                        
                     } else {
                         echo "Your passwords don't match.";
                     }

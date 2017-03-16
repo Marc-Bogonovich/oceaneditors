@@ -244,7 +244,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT username, fields, visible_editor, visible_director, price, turn_aroundtime, name FROM editors";
+$sql = "SELECT id, username, fields, visible_editor, visible_director, price, turn_aroundtime, name FROM editors";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -272,7 +272,7 @@ if ($result->num_rows > 0) {
         <li id= 'field'>Fields: <b>". $row["fields"]."</b></li>
         <li id= 'lastlogin'>Last Login Time: 1 day/s</li>
         <br>
-        <li id= 'vieweditor'><a href=\"editor.php". "?". "username=". $row["username"]."\"> View/contact ".$row["name"]."</a></li>        
+        <li id= 'vieweditor'><a href=\"editor.php". "?". "id=". $row["id"]."\"> View/contact ".$row["name"]."</a></li>        
       </ul>
 <!--      &nbsp
       &nbsp
