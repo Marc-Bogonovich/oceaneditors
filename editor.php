@@ -20,7 +20,7 @@
 -->
 
 <h1> Step 2: Contact an Editor</h1>
-
+<div id="my_wrapper" style="position:absolute; margin-top: 1em; border: solid #eeeeee; width:88%; font-size:20px; margin-left: 5%; font-family: 'Lora', serif;">
 <!--MAKE A CONNECTION TO THE DB BASED ON THE username GET PARAMETER-->
 <?php
 
@@ -73,7 +73,7 @@ $row = mysql_fetch_assoc($sql);
 
 
 echo "
-  <div id= 'record1' style=\"position: absolute; top: 1em;\">
+  <div id= 'editors' >
      <ul>
        <li id= 'username'>Username: <b>". $row["username"] ."</b></li>
        <li id= 'name'>Name: <b>". $row["name"] ."</b></li>
@@ -106,7 +106,7 @@ echo "
 
 
 
-<div id= 'record1' style="position: absolute; top: 20em;">
+<div id= 'editors' >
 
 <p style="font-size: 24px;"><b>Contact Editor</b> Please use this form to contact this editor.</p><br>
 
@@ -213,7 +213,7 @@ mail($to, $subject, $body, $from);
 
 
 <!--END CONTACT FORM CODE-->
-
+  </div>
   </div>
 
 </body>
