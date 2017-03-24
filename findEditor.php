@@ -265,7 +265,7 @@ if ($result->num_rows > 0) {
 //        echo "username: <b><h style=\"color: black;\">" . $row["username"]. "</h></b> - fields: " . $row["fields"]. " " . "<br>";
         
         echo "      <ul>
-        <li id= 'username'>Username: <b>". $row["username"]."</b></li>
+
         <li id= 'name'>Name: <b>". $row["name"]."</b></li>        
         <li id= 'price'>Price: <b>$". $row["price"]."</b> per 1000 words</li>
         <li id= 'turnaround'>Turnaround Time: <b>". $row["turn_aroundtime"]." days</b> </li>
