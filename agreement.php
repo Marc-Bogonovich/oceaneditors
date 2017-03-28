@@ -158,7 +158,7 @@ if (isset($_POST['agreement'])) {
                 </p>
 
                 <p>
-                    4. You are responsible for coordinating with your customer. Once you receive their initial message request from them to send you their submission. You are welcome to evaluate their submission and pass on the job. Please do so promptly.
+                    4. You are responsible for coordinating with your customer. Once you receive their initial message request from them to send you their submission. You are welcome to evaluate their submission and pass on the job. Please do so promptly. Using <b><i>track changes</i></b> is highly recommended.
                 </p>
 
                 <p>
@@ -176,11 +176,11 @@ if (isset($_POST['agreement'])) {
                 </p>
 
                 <p>
-                    Your page is as follows (substitute your username for yourUsername at the end of this url):
+                    Your page is as follows (substitute your username for yourId at the end of this url):
                 </p>
 
                 <p>
-                    http://www.oceaneditors.com/editorforcustomer.php?username=yourUsername
+                    http://www.oceaneditors.com/editor.php?id=yourId
                 </p>
 
                 <p>
@@ -188,11 +188,15 @@ if (isset($_POST['agreement'])) {
                 </p>
 
                 <p>
-                    6. We will distribute checks once a month. In time, this process will be automated.
+                    6. <b><i>Finally, Ask your client to invite a friend to Ocean&middot;Editors.</i></b> You can offer your client a referral, but we have found that simply asking your client to refer their friends and colleagues works effectively.
+                </p>
+                
+                <p>
+                    7. We will distribute checks once a month. In time, this process will be automated.
                 </p>
 
                 <p>
-                    7. <b><i>Very important</i></b> If you are receiving too many jobs from clients, you can set your status to not visible by editing your editor profile. You can also inform previous clients that you&apos;re going to be busy for a little while and suggest they contact other editors.
+                    8. <b><i>Very important</i></b> If you are receiving too many jobs from clients, you can set your status to not visible by editing your editor profile. You can also inform previous clients that you&apos;re going to be busy for a little while and suggest they contact other editors.
                 </p>
 
                 <br>
