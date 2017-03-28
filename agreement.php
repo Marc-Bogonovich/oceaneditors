@@ -188,7 +188,7 @@ if (isset($_POST['agreement'])) {
                 </p>
 
                 <p>
-                    6. <b><i>Finally, Ask your client to invite a friend to Ocean&middot;Editors.</i></b> You can offer your client a referral, but we have found that simply asking your client to refer their friends and colleagues works effectively.
+                    6. <b><i>Finally, Ask your client to invite a friend to Ocean&middot;Editors.</i></b> You can offer your client a referral perk, but we have found that simply asking your client to refer their friends and colleagues works effectively.
                 </p>
                 
                 <p>
