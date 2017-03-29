@@ -214,6 +214,26 @@ mail($to, $subject, $body, $from);
 
 <!--END CONTACT FORM CODE-->
   </div>
+  
+  
+  
+<!--PAYMENT DIVISION-->  
+<div id= 'editors' >
+
+<p style="font-size: 24px;"><b>Pay Editor</b><br> Please pay your editor for their service.</p>
+
+<form action='txpmid.php'  method="post" / >
+<!--Editor id is in following line. type is hidden-->
+<?php echo "<input type=\"hidden\" name=\"CustRefID\"  value=", $_GET['id'], " /><br>" ?>
+<input  type="submit" name="Go" value="Pay Now"   />
+</form>
+
+<br><br>
+</div>  
+<!--END OF PAYMENT DIVISION-->  
+  
+  
+  
   </div>
 
 </body>
