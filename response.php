@@ -17,10 +17,11 @@ color: #23505e;
 <body>
 
 <p id="message" >Your transaction was successful. Thank you for your business.</p>
-<p id="message" >Please share our service with a friend or colleague!</p>
+	<br>
+<p id="message" style="font-size:18px">Please share our service with a friend or colleague!</p>
 
 <!--This is a good place to provide a share link to friends-->
-
-<p id="message" >Return to <a href="http://www.oceaneditors.com/">Ocean$middot;Editors</a></p>
+	<br>
+<p id="message" >Return to <a href="http://www.oceaneditors.com/">Ocean&middot;Editors</a></p>
 
 </body>
