@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?> <!DOCTYPE html>
 
 <html>
 
@@ -101,10 +101,10 @@
                         $stmt->bindParam(':email', $_POST['email2']);
                         $stmt->execute();
 
-                        session_start();
+//                        session_start();
                         $_SESSION["id"] = $conn->lastInsertId();
                         
-                        header("Location: agreement.php");
+                        echo "<script type=\"text/javascript\"> window.location = \"http://www.openwords.org/\"; </script>"; //header("Location: agreement.php");
                         
                     } else {
                         echo "Your passwords don't match.";
@@ -120,13 +120,13 @@
                         $temp_password = $results[0]['password'];
                         if (password_verify($_POST['password'], $temp_password)) {
                             
-                            session_start();
+//                            session_start();
                             $_SESSION["id"] = $results[0]['id'];
                             
                             if ($results[0]['agreement'] == 1) {
-                                header("Location: ModifyEditorProfile.php");
+                                echo "<script type=\"text/javascript\"> window.location = \"http://www.openwords.com/\"; </script>"; // header("Location: ModifyEditorProfile.php");
                             } else {
-                                header("Location: agreement.php");
+                                echo "<script type=\"text/javascript\"> window.location = \"http://www.anglocheck.com/\"; </script>"; // header("Location: agreement.php");
                             }
                         } else {
                             echo 'Invalid password.';
