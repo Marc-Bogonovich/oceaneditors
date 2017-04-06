@@ -80,7 +80,7 @@ echo "
        <li id= 'turnaround'>Turnaround Time: <b>". $row["turn_aroundtime"] ."</b> days </li>
        <li id= 'field'>Fields: <b>". $row["fields"] ."</b></li>
        <li id= 'lastlogin'>Last Login Time: 1 day</li>
-       <li id= 'price'>Price per 1000 words: <b>$". $row["price"] ."</b></li>
+       <li id= 'price'>Price: <b>". $row["price"] ."</b></li>
        <br>
        <li id= 'description'>Description: <b>". $row["description"] ."</b></li>
      </ul>
