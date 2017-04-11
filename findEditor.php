@@ -266,13 +266,13 @@ if ($result->num_rows > 0) {
         
         echo "      <ul>
 
-        <li id= 'name'>Name: <b>". $row["name"]."</b></li>        
-        <li id= 'price'>Price: <b>". $row["price"]."</b></li>
+        <li id= 'name'><b>". $row["name"]."</b></li>        
+        <li id= 'price'><b>". $row["price"]."</b></li>
         <li id= 'turnaround'>Turnaround Time: <b>". $row["turn_aroundtime"]." days</b> </li>
         <li id= 'field'>Fields: <b>". $row["fields"]."</b></li>
-        <li id= 'lastlogin'>Last Login Time: 1 day/s</li>
+     <!--   <li id= 'lastlogin'>Last Login Time: 1 day/s</li> -->
         <br>
-        <li id= 'vieweditor'><a href=\"editor.php". "?". "id=". $row["id"]."\"> View/contact ".$row["name"]."</a></li>        
+        <li id= 'vieweditor'><a href=\"editor.php". "?". "id=". $row["id"]."\"> Contact ".$row["name"]."</a></li>        
       </ul>
 <!--      &nbsp
       &nbsp
