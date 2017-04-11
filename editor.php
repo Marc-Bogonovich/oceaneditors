@@ -76,12 +76,12 @@ echo "
   <div id= 'editors' >
      <ul>
 
-       <li id= 'name'>Name: <b>". $row["name"] ."</b></li>
-       <li id= 'turnaround'>Turnaround Time: <b>". $row["turn_aroundtime"] ."</b> days </li>
-       <li id= 'field'>Fields: <b>". $row["fields"] ."</b></li>
-       <li id= 'lastlogin'>Last Login Time: 1 day</li>
-       <li id= 'price'>Price: <b>". $row["price"] ."</b></li>
+       <li id= 'name'><b>". $row["name"] ."</b></li>
+       <li id= 'price'><b>". $row["price"] ."</b></li>
        <br>
+       <li id= 'field'>Fields: <b>". $row["fields"] ."</b></li>
+       <!-- <li id= 'lastlogin'>Last Login Time: 1 day</li> -->
+       <li id= 'turnaround'>Turnaround Time: <b>". $row["turn_aroundtime"] ."</b> days </li>
        <li id= 'description'>Description: <b>". $row["description"] ."</b></li>
      </ul>
      &nbsp
