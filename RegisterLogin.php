@@ -104,7 +104,7 @@
 //                        session_start();
                         $_SESSION["id"] = $conn->lastInsertId();
                         
-                        echo "<script type=\"text/javascript\"> window.location = \"http://www.openwords.org/\"; </script>"; //header("Location: agreement.php");
+                        echo "<script type=\"text/javascript\"> window.location = \"http://oceaneditors.com/agreement.php\"; </script>"; //header("Location: agreement.php");
                         
                     } else {
                         echo "Your passwords don't match.";
@@ -124,9 +124,9 @@
                             $_SESSION["id"] = $results[0]['id'];
                             
                             if ($results[0]['agreement'] == 1) {
-                                echo "<script type=\"text/javascript\"> window.location = \"http://www.openwords.com/\"; </script>"; // header("Location: ModifyEditorProfile.php");
+                                echo "<script type=\"text/javascript\"> window.location = \"http://oceaneditors.com/ModifyEditorProfile.php\"; </script>"; // header("Location: ModifyEditorProfile.php");
                             } else {
-                                echo "<script type=\"text/javascript\"> window.location = \"http://www.anglocheck.com/\"; </script>"; // header("Location: agreement.php");
+                                echo "<script type=\"text/javascript\"> window.location = \"http://oceaneditors.com/agreement.php\"; </script>"; // header("Location: agreement.php");
                             }
                         } else {
                             echo 'Invalid password.';
